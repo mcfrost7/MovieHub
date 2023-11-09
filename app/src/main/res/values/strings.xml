@@ -42,4 +42,30 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="version">0.0.1</string>
+    <string name="versionMain">Version</string>
+    <string name="git">View this project on GitHub</string>
+    <string name="gitMain">GitHub</string>
+    <string name="faq">Need more help?</string>
+    <string name="faqMain">FAQ</string>
+    <string name="bugMain">Report a bug</string>
+    <string name="bug">Faced with an error? Let us know and we will help you solve the problem quickly</string>
+    <string name="contact">Any ideas for improvement? Contact us for discussion</string>
+    <string name="contactMain">Contact us</string>
+    <string name="madeMain">Made by</string>
+    <string name="made">mсfrost7</string>
+    <string name="about_screen">About</string>
+    <string name="home_screen">Home</string>
+    <string name="edit_screen">Edit</string>
+    <string name="add">Add</string>
+    <string name="title">Title:</string>
+    <string name="duration">Duration:</string>
+    <string name="genre">Genre:</string>
+    <string name="realese">Realese:</string>
+    <string name="country">Country:</string>
+    <string name="rating">Rating:</string>
+    <string name="cast">Cast:</string>
+    <string name="description">Description:</string>
+    <string name="budget">Budget:</string>
+    <string name="collection">Collection:</string>
 </resources>

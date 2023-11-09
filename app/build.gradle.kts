@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    //alias(libs.plugins.ksp)
 }
 
 android {
@@ -109,6 +110,8 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(platform(libs.compose.bom))
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -118,4 +121,5 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.compose.tooling)
     debugImplementation(libs.ui.test.manifest)
-}
+
+    }
