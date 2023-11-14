@@ -67,19 +67,18 @@ fun CreateColumn(
 
     val screenHeight = LocalConfiguration.current.screenHeightDp * 0.1f
     val screenWidth = LocalConfiguration.current.screenWidthDp * 0.1f
-    val curentSzie = if (screenHeight > screenWidth) screenHeight else screenWidth
-    var columnweight by rememberSaveable { mutableStateOf(curentSzie) }
+    val currentSize = if (screenHeight > screenWidth) screenHeight else screenWidth
+    var columnweight by rememberSaveable { mutableStateOf(currentSize) }
     val spacesize = 20.dp
     Column(
         modifier = Modifier
             .padding(paddingStart.dp, paddingTop.dp, paddingEnd.dp, paddingBottom.dp)
-            .fillMaxWidth()
-            .height(columnweight.dp)
+            .height(columnweight.dp * 1.1f )
 
 
     ) {
         Row(
-            modifier = Modifier
+            modifier = Modifier.fillMaxWidth(1f).fillMaxHeight(1f)
         )
 
         {
@@ -89,7 +88,7 @@ fun CreateColumn(
                 modifier = Modifier
                     .size(imageSize.dp)
             )
-            Column(modifier = Modifier.fillMaxHeight(1f)) {
+            Column(modifier = Modifier.height(screenHeight.dp)) {
                 Row(
                     modifier = Modifier
                         .fillMaxHeight(rowSizeMain)
@@ -234,7 +233,7 @@ fun About(navController: NavController) {
                     imageSize = 60,
                     textPaddingHorizontal = 10f,
                     textPaddingVertical = 0F,
-                    rowSizeMain = 0.5F,
+                    rowSizeMain = 0.4F,
                     rowSizeSecond = 1F
                 )
                 CreateColumn(
@@ -248,7 +247,7 @@ fun About(navController: NavController) {
                     imageSize = 60,
                     textPaddingHorizontal = 10f,
                     textPaddingVertical = 0F,
-                    rowSizeMain = 0.5F,
+                    rowSizeMain = 0.4F,
                     rowSizeSecond = 1F
                 )
                 CreateColumn(

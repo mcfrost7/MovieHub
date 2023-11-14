@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
@@ -53,6 +55,7 @@ fun EditScreen( navController: NavController = rememberNavController(),
         topBar = { EditTopAppBar(navController) },
         containerColor = Color(0xff1b1b23),
     ){
+
         EditField(comment)
     }
 }
@@ -100,8 +103,9 @@ fun EditField(comment: com.iliadavidovich.moviehub.Classes.Comment)
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 20.dp)
+            .verticalScroll(rememberScrollState())
     ) {
-        Spacer(modifier = Modifier.height(60.dp))
+        Spacer(modifier = Modifier.height(70.dp))
         Field(name = "Title", icon = Icons.Filled.CheckCircle)
         Field(name = "Duration", icon = Icons.Filled.CheckCircle)
         Field(name = "Genre", icon = Icons.Filled.CheckCircle)
