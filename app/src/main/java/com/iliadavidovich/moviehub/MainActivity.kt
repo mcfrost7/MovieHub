@@ -9,7 +9,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost;
 import androidx.navigation.compose.composable;
+import com.google.gson.GsonBuilder
 import com.iliadavidovich.moviehub.Screens.*;
+import java.util.UUID
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -28,8 +30,12 @@ class MainActivity : ComponentActivity() {
                 composable("AboutScreen") {
                     About(navController);
                 }
-                composable("EditScreen") {
-                    EditScreen(navController);
+                composable("EditScreen?filmCommentId={id}") {
+                    navBackStackEntry ->
+                    val idString = navBackStackEntry.arguments?.getString("id")
+                    val converter = GsonBuilder().create()
+                    val id = converter.fromJson(idString, UUID::class.java)
+                    EditScreen(navController, id = id);
                 }
             }
         }

@@ -1,16 +1,27 @@
 package com.iliadavidovich.moviehub.Classes
 
-import android.provider.ContactsContract.CommonDataKinds.Note
-import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.iliadavidovich.moviehub.Interfaces.HomeState
 import com.iliadavidovich.moviehub.R
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+
 class HomeViewModel:ViewModel() {
-   val  comments: SnapshotStateList<Comment> = DefaultComments.toMutableStateList()
 
-   fun onClickRemoveComment(comment: Comment) = comments.remove(comment)
+   suspend fun onClickRemoveComment(filmComment: FilmComment) = CommentRepositryImpl.delete(filmComment.id)
 
-    private companion object{
+   val state: StateFlow<HomeState> = CommentRepositryImpl.getComments()
+       .map { data ->
+           when{
+               data.isEmpty() -> HomeState.Empty
+               else -> HomeState.DisplayingFilmComments(data)
+           }
+       }.stateIn(viewModelScope, SharingStarted.Lazily, HomeState.Loading)
+
+    companion object{
         val film = Film(title = "Scream 4" ,
             budget = "20000000" ,
             cast = "Popular actros",
@@ -23,10 +34,10 @@ class HomeViewModel:ViewModel() {
             realeseYear = "2003",
             image = R.drawable.poster_default);
 
-        private val DefaultComments = listOf(
-            Comment(film,"So so "),
-            Comment(film, "Very good!"),
-            Comment(film, "Sh*t")
+        val DefaultFilmComments = listOf(
+            FilmComment(film,"So so "),
+            FilmComment(film, "Very good!"),
+            FilmComment(film, "Sh*t")
         )
     }
 }

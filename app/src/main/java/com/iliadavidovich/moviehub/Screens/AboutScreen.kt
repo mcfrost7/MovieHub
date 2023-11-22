@@ -1,5 +1,4 @@
 package com.iliadavidovich.moviehub.Screens
-
 import android.annotation.SuppressLint
 import android.widget.ImageButton
 import androidx.compose.foundation.Image
@@ -73,9 +72,7 @@ fun CreateColumn(
     Column(
         modifier = Modifier
             .padding(paddingStart.dp, paddingTop.dp, paddingEnd.dp, paddingBottom.dp)
-            .height(columnweight.dp * 1.1f )
-
-
+            .height(columnweight.dp * 1.2f )
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(1f).fillMaxHeight(1f)
@@ -88,24 +85,14 @@ fun CreateColumn(
                 modifier = Modifier
                     .size(imageSize.dp)
             )
-            Column(modifier = Modifier.height(screenHeight.dp)) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxHeight(rowSizeMain)
-                ) {
+            Column(modifier = Modifier.fillMaxHeight(1f)) {
+
                     Text(
                         text = stringResource(id = textResourceShort),
                         fontSize = 26.sp,
                         modifier = Modifier
                             .padding(textPaddingHorizontal.dp, textPaddingVertical.dp)
-
                     )
-
-                }
-                Row(
-                    modifier = Modifier
-                        .fillMaxHeight(rowSizeSecond)
-                ) {
                     Text(
                         text = stringResource(id = textResourceLong),
                         fontSize = 20.sp,
@@ -114,18 +101,15 @@ fun CreateColumn(
 
                     )
                 }
-
             }
-        }
+
     }
     Spacer(modifier = Modifier.height(spacesize))
 }
-
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun About(navController: NavController) {
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -160,7 +144,7 @@ fun About(navController: NavController) {
                 }
             )
         },
-        containerColor = SoftWhite,
+        containerColor = Color(0xff1b1b23),
         modifier = Modifier.fillMaxHeight(1f)
     )
     {
@@ -270,6 +254,3 @@ fun About(navController: NavController) {
         }
     }
 }
-
-
-

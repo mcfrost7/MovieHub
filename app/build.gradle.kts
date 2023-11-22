@@ -121,5 +121,6 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.compose.tooling)
     debugImplementation(libs.ui.test.manifest)
-
+    implementation(libs.lifeCycle)
+    implementation(libs.gson)
     }
